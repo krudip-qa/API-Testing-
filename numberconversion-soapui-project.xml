@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="454a5954-611c-42d7-8d61-b4ffc32ad74f" activeEnvironment="Default" name="NumberConversion" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="30d65092-091a-4d97-965b-c2f107539ac1" wsaVersion="NONE" name="NumberConversionSoapBinding" type="wsdl" bindingName="{http://www.dataaccess.com/webservicesserver/}NumberConversionSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="CreateWsdlDocumentationAction@report-directory">C:\Users\krupa\Desktop</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL"><con:part><con:url>http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</con:url><con:content><![CDATA[<definitions name="NumberConversion" targetNamespace="http://www.dataaccess.com/webservicesserver/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.dataaccess.com/webservicesserver/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.dataaccess.com/webservicesserver/">
+      <xs:element name="NumberToWords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ubiNum" type="xs:unsignedLong"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToWordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToWordsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollars">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="dNum" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollarsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToDollarsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="NumberToWordsSoapRequest">
+    <part name="parameters" element="tns:NumberToWords"/>
+  </message>
+  <message name="NumberToWordsSoapResponse">
+    <part name="parameters" element="tns:NumberToWordsResponse"/>
+  </message>
+  <message name="NumberToDollarsSoapRequest">
+    <part name="parameters" element="tns:NumberToDollars"/>
+  </message>
+  <message name="NumberToDollarsSoapResponse">
+    <part name="parameters" element="tns:NumberToDollarsResponse"/>
+  </message>
+  <portType name="NumberConversionSoapType">
+    <operation name="NumberToWords">
+      <documentation>Returns the word corresponding to the positive number passed as parameter. Limited to quadrillions.</documentation>
+      <input message="tns:NumberToWordsSoapRequest"/>
+      <output message="tns:NumberToWordsSoapResponse"/>
+    </operation>
+    <operation name="NumberToDollars">
+      <documentation>Returns the non-zero dollar amount of the passed number.</documentation>
+      <input message="tns:NumberToDollarsSoapRequest"/>
+      <output message="tns:NumberToDollarsSoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="NumberConversionSoapBinding" type="tns:NumberConversionSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberConversionSoapBinding12" type="tns:NumberConversionSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="NumberConversion">
+    <documentation>The Number Conversion Web Service, implemented with DataFlex, provides functions that convert numbers into words or dollar amounts.</documentation>
+    <port name="NumberConversionSoap" binding="tns:NumberConversionSoapBinding">
+      <soap:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+    <port name="NumberConversionSoap12" binding="tns:NumberConversionSoapBinding12">
+      <soap12:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:endpoints><con:operation id="99fface1-99fd-4abc-8aed-9d711eb81865" isOneWay="false" action="" name="NumberToDollars" bindingOperationName="NumberToDollars" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5b86b660-4094-4b0a-a986-93f42f1b5b66" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToDollars>\r
+         <web:dNum>112</web:dNum>\r
+      </web:NumberToDollars>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bdd5b021-ac94-49da-b1e8-aab9609dc48d" isOneWay="false" action="" name="NumberToWords" bindingOperationName="NumberToWords" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6e294f58-9827-4ca2-95e7-3107b69f9cc3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToWords>\r
+         <web:ubiNum>20</web:ubiNum>\r
+      </web:NumberToWords>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="37d0895b-34fd-412c-9621-bd3b80f239c0" name="TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4da39c99-3272-449a-b0ea-bee2e95f1eab" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="NumberToDollars TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="bf9b6910-5a4c-4785-8ddc-093f8441f2e2" name="NumberToDollars"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>NumberConversionSoapBinding</con:interface><con:operation>NumberToDollars</con:operation><con:request name="NumberToDollars" id="7f5155ae-1976-4d70-a43f-454ad970b9b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToDollars>\r
+         <web:dNum>${#Project#NumberToDoller}</web:dNum>\r
+       </web:NumberToDollars>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="e37dffd8-eb27-48e0-adfa-a1183008fa4e" name="Contains"><con:configuration><token>three</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="49776c3f-0cdf-43c2-bb70-f7f590242efa"><con:configuration/></con:assertion><con:assertion type="XPath Match" id="7570e52a-f435-4190-be2d-d8aad2863fa3" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://www.dataaccess.com/webservicesserver/';
+
+//m:NumberToDollarsResult</path><content>three dollars</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="44198da7-d51e-4e10-aeb5-2c5fc9ad92ed" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://www.dataaccess.com/webservicesserver/';
+
+//m:NumberToDollarsResult</path><content>&lt;m:NumberToDollarsResult xmlns:m="http://www.dataaccess.com/webservicesserver/">three dollars&lt;/m:NumberToDollarsResult></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="83c6b886-a3f3-4988-9a13-5818248dc904" name="Invalid HTTP Status Codes"><con:configuration><codes>400, 501</codes></con:configuration></con:assertion><con:assertion type="SOAP Response" id="0a57a987-a69a-422c-af48-32714c05e280" name="SOAP Response"/><con:assertion type="Valid HTTP Status Codes" id="69a37177-779a-4f31-851c-5b93eef60f01" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="2380cf56-63f9-44f8-8be0-7881a1163a0f" name="Response SLA"><con:configuration><SLA>3000</SLA></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="28030e71-f1a7-47ce-b7b0-90dd0437f3c0" name="Script Assertion"><con:configuration><scriptText>//Script Assertion samples
+//=====================
+
+//check for TimeTaken
+ log.info messageExchange.getTimeTaken()  
+ 
+//check response time
+assert messageExchange.timeTaken  &lt; 4000
+
+//check for Endpoint
+ log.info messageExchange.getEndpoint()
+//Validate comparision of Our Endpoint and System endpoint 
+def EndPoint = "http://www.dataaccess.com/webservicesserver/numberconversion.wso"
+assert messageExchange.getEndpoint() == EndPoint 
+
+//check for header - on response window has haeder tab so get value from their
+log.info (messageExchange.responseHeaders["Content-Length"])
+assert messageExchange.responseHeaders["Content-Length"] != null
+
+//check attachments - How many attached file with it
+assert messageExchange.responseAttachments.length == 0
+log.info (messageExchange.responseAttachments.length)
+
+//validate response nodes
+//GroovyUtils - javaClass
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+//def requsetHolder = groovyUtils.getXmlHolder( messageExchange.requestContent )
+def responseHolder = groovyUtils.getXmlHolder( messageExchange.responseContent )
+def DollarNumber = responseHolder.getNodeValue("//m:NumberToDollarsResponse/m:NumberToDollarsResult")
+assert DollarNumber == "three dollars"
+
+
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1814bf61-a505-42a3-80e9-29e5bb115593" name="NumberToWords"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>NumberConversionSoapBinding</con:interface><con:operation>NumberToWords</con:operation><con:request name="NumberToWords" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9a2b9f21-2c2c-4af3-8f89-edac5da33124"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:NumberToWords>
+         <web:ubiNum>${#Project#NumberToWord}</web:ubiNum>
+      </web:NumberToWords>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="3d01835f-fd6e-47a4-b0ef-7d40483d0d3b" name="Contains"><con:configuration><token>five</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="9e765529-a198-4f84-a0b2-40049bf44862" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://www.dataaccess.com/webservicesserver/';
+
+//m:NumberToWordsResult</path><content>five</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="9bb5b4d8-329f-460d-b562-22247c4b670b" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://www.dataaccess.com/webservicesserver/';
+
+//m:NumberToWordsResult</path><content>&lt;m:NumberToWordsResult xmlns:m="http://www.dataaccess.com/webservicesserver/">five&lt;/m:NumberToWordsResult></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="d41a0d56-1cee-4875-ad0b-43d7e251b80d" name="Invalid HTTP Status Codes"><con:configuration><codes>400, 501, 300</codes></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="90e4c7c3-b3d5-49c9-81cd-5ae749462e2b" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="c2fd88e3-ba1a-47e6-8e96-5bb684434de6" name="SOAP Response"/><con:assertion type="Valid HTTP Status Codes" id="6596f7a4-0c63-4f60-84af-10922a62f5a6" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="d0c637c3-585a-4505-ad48-92adf2a47a13" name="Script Assertion"><con:configuration><scriptText>/*
+ * Script assertion works on the last reponse received in soapui
+   works with messageExchange object
+  (messageExchange object stores all the details of the last request and response)
+*/
+//Script Assertion samples
+//=====================
+
+//check response time
+assert messageExchange.timeTaken &lt; 4000
+//check for TimeTaken
+ log.info messageExchange.getTimeTaken()  
+
+//check for Endpoint
+ log.info messageExchange.getEndpoint() 
+ 
+//Compare Endpoint with expected to Actual
+ def ExpectedEndpoint = "http://www.dataaccess.com/webservicesserver/numberconversion.wso"
+ def ActualEndPoint = messageExchange.getEndpoint()
+ assert ExpectedEndpoint == ActualEndPoint
+	
+//check for header
+log.info (messageExchange.responseHeaders["Content-Length"])
+assert messageExchange.responseHeaders["Content-Length"] != null
+
+//check attachments
+assert messageExchange.responseAttachments.length == 0
+log.info (messageExchange.responseAttachments.length)
+
+//validate response nodes
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+//def requsetHolder = groovyUtils.getXmlHolder( messageExchange.requestContent )
+def responseHolder = groovyUtils.getXmlHolder( messageExchange.responseContent )
+def WordNumber = responseHolder.getNodeValue("//m:NumberToWordsResponse/m:NumberToWordsResult")
+assert WordNumber == "five"
+
+//to get response - XML code in SOAP manner 
+def resp = messageExchange.responseContentAsXml.toString()
+
+
+
+/* Rest API 
+For JSON response
+-------------------------------
+
+//get json response
+import groovy.json.JsonSlurper
+def responseMessage = messageExchange.response.responseContent
+def json = new JsonSlurper().parseText(responseMessage)
+
+//assert node values
+log.info json.name
+assert json.capital.toString() != null
+assert json.name.toString() == "[Taiwan]"
+
+testStepName = messageExchange.modelItem.testStep.name//to get the Test Step Name
+log.info testStepName
+xmlHold = messageExchange.responseContentAsXml.toString()  //to store the response as Xml string
+
+
+
+*/</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="96f071c1-a940-4514-acc7-fa3a595e4693"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="TestStepProperty" id="256bff3b-8bfa-4245-85ce-33bc0605b54c"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Name</con:name><con:value>I am TestStep Property</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Use Property" id="1e97fdb8-04bb-4ab9-b53d-92dd6764ba35"><con:settings/><con:config><script>//print 
+log.info"This is Number to dolloer groovy script";
+
+//Project level
+//Get the Level of property
+def projectproperty = context.expand('${#Project#Name}');
+//print 
+log.info("Property level at: " +projectproperty);
+
+//get property value and save in variable
+ //def Number = context.expand('${#Project#NumberToDoller}'); 
+//print name of property
+//log.info("Property is: " +Number);
+
+//Test Suite level
+//Get property value
+def TestSuiteProperty = context.expand('${#TestSuite#PropertyLevel}');
+//print the value
+log.info(TestSuiteProperty);
+
+//Test case level
+def TestCaseProperty = context.expand('${#TestCase#PropertyLevel}');
+//print 
+log.info(TestCaseProperty);
+
+//testStep level
+def TestStepPropert = context.expand('${TestStepProperty#Name}');
+//print
+log.info(TestStepPropert);
+
+
+
+
+
+
+
+
+
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="GetSetProperty" id="e4bf40df-2c15-48f0-ae9e-fc8dba514240"><con:settings/><con:config><script>
+//This is get and set property by Groovy script
+
+/************************* Get Property ******************/
+/*
+log.info("This is Get property")
+//project Level
+def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue("Name");
+log.info(projectProperty);
+
+//TestSuite
+def TestSuiteProperty = testRunner.testCase.testSuite.getPropertyValue("PropertyLevel");
+log.info(TestSuiteProperty);
+
+//TestCase
+def TestCaseProperty = testRunner.testCase.getPropertyValue("PropertyLevel");
+log.info(TestCaseProperty);
+
+//TestSteps
+def TestStepPro = testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("Name");
+log.info(TestStepPro);
+
+*/
+
+/**************** Set Property **********/
+/*
+log.info("This is Set property ")
+
+//project
+testRunner.testCase.testSuite.project.setPropertyValue("Name","I am project property");
+
+//TestSuite
+testRunner.testCase.testSuite.setPropertyValue("PropertyLevel","I am TestSuite Property")
+
+//TestCase
+testRunner.testCase.setPropertyValue("PropertyLevel","I am Testcase property")
+
+//TestStep
+testRunner.testCase.getTestStepByName("TestStepProperty").setPropertyValue("Name","I am TestStep Property")
+
+ /**************** Set property and Get Property***********/
+/*
+ 
+ //project - set and than get 
+testRunner.testCase.testSuite.project.setPropertyValue("Name","I am project property");
+def UpprojectProperty = testRunner.testCase.testSuite.project.getPropertyValue("Name");
+log.info(UpprojectProperty);
+
+*/
+
+/*
+//Add Property
+testRunner.testCase.testSuite.project.addProperty("remote");
+
+//Remove property
+//testRunner.testCase.testSuite.project.removeProperty("remote")
+
+*/
+//Loop Property
+testRunner.testCase.properties.each
+	{
+		key,value ->
+			log.info(testRunner.testCase.getPropertyValue(key))
+		
+	}
+
+
+
+
+
+
+
+</script></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="9dd60c13-acd0-4184-b655-020db57e9ae3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="true" entitize="false" transferChildNodes="false"><con:name>NumberToDollars</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>NumberToDollars</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.dataaccess.com/webservicesserver/';
+//*:dNum</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>NumberToWords</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.dataaccess.com/webservicesserver/';
+//*:ubiNum</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="RunRequestAtTestCase" id="d1d0d7c9-dbcc-4a67-bbd3-de8bad67df62"><con:settings/><con:config><script>/*
+//Groovy - run request from same TestCase
+def status = testRunner.runTestStepByName("NumberToDollars")
+def result = status.getStatus().toString();
+log.info ("   ---- "+result)
+*/
+
+//Groovy - run request from another TestCase or TestSuite
+project = testRunner.testCase.testSuite.project ;
+tcase = project.testSuites["TestSuite"].testCases["NumberToWords TestCase"] ; 
+tstep = tcase.getTestStepByName("NumberToWords");
+def status = tstep.run(testRunner, context)
+def result = status.getStatus().toString();
+log.info ("   ----   "+result)
+
+
+
+/*
+ * //Groovy - run request from another TestCase or TestSuite
+project = testRunner.testCase.testSuite.project ;
+tcase = project.testSuites["TestSuiteName"].testCases["TestCaseName"] ; 
+tstep = tcase.getTestStepByName("TestStepName");
+def status = tstep.run(testRunner, context)
+def result = status.getStatus().toString();
+log.info ("   ----   "+result)
+*/
+ 
+</script></con:config></con:testStep><con:testStep type="groovy" name="RunTestCase" id="7e1155c4-1fe7-48b0-9d62-657a7ef4c9cd"><con:settings/><con:config><script>/*
+/groovy code to run test case - can not run same testcase cause continus looping
+//=====================
+def tCase = testRunner.testCase.testSuite.testCases["TestCaseName"]
+runner = tCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+
+*/
+
+def tCase = testRunner.testCase.testSuite.testCases["NumberToWords TestCase"]
+prop = new com.eviware.soapui.support.types.StringToObjectMap()
+
+runner = tCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+</script></con:config></con:testStep><con:testStep type="groovy" name="RunTestSuite" id="9a4461ee-d40d-4df1-ab36-cf6533b7e0bc"><con:settings/><con:config><script>//Groovy script
+//For this I created new testSuite and add steps throught requests
+
+def suite = context.testCase.testSuite.project.testSuites["TestSuite2"]
+suite.run(null,false)
+// null can be replaced with : new com.eviware.soapui.support.types.StringToObjectMap()
+log.info ("   ===   "+suite.getName().toString()+" - Executed successfully")
+
+
+/*
+//Groovy script
+//-------------------
+
+def suite = context.testCase.testSuite.project.testSuites["TestSuiteName"]
+suite.run(null,false)
+// null can be replaced with : new com.eviware.soapui.support.types.StringToObjectMap()
+log.info ("   ===   "+suite.getName().toString()+" - Executed successfully")
+*/</script></con:config></con:testStep><con:testStep type="groovy" name="RunProject" id="0159166c-02e5-4866-98d1-fb1dd4e0b6d9"><con:settings/><con:config><script>//groovy script
+//You can not run same project inside project 
+//Select another project - here i create Ooesprong project and create testSuite->TestCase-> request
+// Add request: Request - Right click - Add to testcase -choose case -OK 
+
+//------------------
+ def projectName = testRunner.getTestCase().getTestSuite().getProject().getWorkspace().getProjectByName("Oorsprong")
+ def runStatus = projectName.run(null,true)
+//projectName.run(new com.eviware.soapui.support.types.StringToObjectMap(), false)
+
+Thread.sleep(5000)
+
+log.info("  >>>> Status is : " +runStatus.getStatus().toString())
+
+
+/*
+groovy script
+------------------
+def projectName=testRunner.getTestCase().getTestSuite().getProject().getWorkspace().getProjectByName("REST Project 1")
+projectName.run(null,true)
+//projectName.run(new com.eviware.soapui.support.types.StringToObjectMap(), false)
+*/</script></con:config></con:testStep><con:testStep type="groovy" name="SetUpAndTearDown" id="13d7bb88-7c20-4441-80b3-8d8b213a20b9"><con:settings/><con:config><script>//groovy code to set and get setup and teardown scripts 
+//--------------------------------------------------------------------------
+testRunner.testCase.testSuite.project.getTestSuiteByName('TestSuite').getTestCaseByName('NumberToDollars TestCase').setSetupScript('log.info "This is setUp by groovy script for  NToD testcase"')
+testRunner.testCase.testSuite.project.getTestSuiteByName('TestSuite').getTestCaseByName('NumberToDollars TestCase').setTearDownScript('log.info "This is teardown by groovy scripy for NToD TestCase"')
+
+log.info ("  --  "+testRunner.testCase.getSetupScript());
+log.info ("  --  "+testRunner.testCase.getTearDownScript());
+</script></con:config></con:testStep><con:setupScript>log.info "This is setUp for testcase"</con:setupScript><con:tearDownScript>log.info "This is teardown for TestCase"</con:tearDownScript><con:properties><con:property><con:name>Number</con:name><con:value>3</con:value></con:property><con:property><con:name>PropertyLevel</con:name><con:value>I am Testcase property</con:value></con:property></con:properties></con:testCase><con:testCase id="6b6d1ef1-0caa-4f50-9963-76e45675cfbb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="NumberToWords TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4d25a28a-b2f4-47b8-9e0b-47bae713a6f0" name="NumberToWords"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>NumberConversionSoapBinding</con:interface><con:operation>NumberToWords</con:operation><con:request name="NumberToWords" id="a581ea56-6d5e-4f41-8e7b-a5948f17ca25"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToWords>\r
+         <web:ubiNum>${#Project#NumberToWord}</web:ubiNum>\r
+      </web:NumberToWords>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="2c152d56-67ee-4186-be3d-cd954f333484" name="Contains"><con:configuration><token>five</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="TestStepProperty" id="8d1b7ae9-ed63-4313-bc0c-2505785941a9"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Description </con:name><con:value>This is test step level property</con:value></con:property><con:property><con:name>PropertyScripting</con:name><con:value>TestStep Property</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="GetSetProperty" id="19ae74a4-a6f6-46f0-b1de-7124260053f3"><con:settings/><con:config><script>/***************** Set Property ********* Get Property***********/
+//Project Property
+testRunner.testCase.testSuite.project.setPropertyValue("NToWProperty","Project Property")
+def ProjectProperty = testRunner.testCase.testSuite.project.getPropertyValue("NToW")
+log.info (" >>>>>>> Propety level is : " +ProjectProperty)
+
+//TestSuite
+testRunner.testCase.testSuite.setPropertyValue("ScriptNToWProperty", "TestSuite Level")
+def TestSuiteProperty = testRunner.testCase.testSuite.getPropertyValue("ScriptProperty")
+log.info (">>>>>>>Property level is : " + TestSuiteProperty)
+
+//TestCase
+testRunner.testCase.setPropertyValue("NToWPropertyScript","TestCase Level")
+def TestCaseProperty = testRunner.testCase.getPropertyValue("NToWPropertyScript")
+log.info (">>>>>>>>Property level is :" + TestCaseProperty)
+
+//TestStep
+testRunner.testCase.getTestStepByName("TestStepProperty").setPropertyValue("PropertyScripting","TestStep Property")
+def TestStepProperty = testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("PropertyScripting")
+log.info (">>>>>>>>Property Level is : " + TestStepProperty)
+
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="SetUpAndTearDown" id="39d8f3cf-b00d-44ef-a36c-1472cf82c5ff"><con:settings/><con:config><script>//groovy code to set and get setup and teardown scripts 
+//--------------------------------------------------------------------------
+testRunner.testCase.testSuite.project.getTestSuiteByName('TestSuite').getTestCaseByName('NumberToWords TestCase').setSetupScript('log.info "This is setUp for NToW testcase"')
+testRunner.testCase.testSuite.project.getTestSuiteByName('TestSuite').getTestCaseByName('NumberToWords TestCase').setTearDownScript('log.info "This is teardown forNToW TestCase"')
+
+log.info ("  --  "+testRunner.testCase.getSetupScript());
+log.info ("  --  "+testRunner.testCase.getTearDownScript());</script></con:config></con:testStep><con:setupScript>log.info "This is setUp for NToW testcase"</con:setupScript><con:tearDownScript>log.info "This is teardown forNToW TestCase"</con:tearDownScript><con:properties><con:property><con:name>Description</con:name><con:value>This is Number to word test case level property</con:value></con:property><con:property><con:name>NToWPropertyScript</con:name><con:value>TestCase Level</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>PropertyLevel</con:name><con:value>I am TestSuite Property</con:value></con:property><con:property><con:name>NumberToDoller</con:name><con:value>40</con:value></con:property><con:property><con:name>ScriptProperty</con:name><con:value>TestSuite Level</con:value></con:property><con:property><con:name>ScriptNToWProperty</con:name><con:value>TestSuite Level</con:value></con:property></con:properties><con:setupScript>log.info ("This is before TestSuite")</con:setupScript><con:tearDownScript>log.info ("This is after TestSuite")</con:tearDownScript></con:testSuite><con:testSuite id="06660d1c-3043-4a92-8239-54bc9b6e97d9" name="TestSuite2"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="cc6a315e-b8f2-4066-a3f8-a8ffed105d81" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase1" searchProperties="true"><con:settings/><con:testStep type="request" id="bf67e865-2fcf-4e96-82d9-26adb2ed4c51" name="NumberToDollars - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>NumberConversionSoapBinding</con:interface><con:operation>NumberToDollars</con:operation><con:request name="NumberToDollars - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="abc6825a-b329-4af8-800a-b032a41d2e56"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToDollars>\r
+         <web:dNum>112</web:dNum>\r
+      </web:NumberToDollars>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e98d9702-b7b5-479d-b0dc-46b289c4daf8" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="42e5f02e-aa73-48df-9766-b29e4231fef5" name="NumberToWords - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>NumberConversionSoapBinding</con:interface><con:operation>NumberToWords</con:operation><con:request name="NumberToWords - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="bbec05ae-a637-42ee-98e6-67045938c2ab"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToWords>\r
+         <web:ubiNum>20</web:ubiNum>\r
+      </web:NumberToWords>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d70e4578-c444-4c54-b2b5-4c01950361a3" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>NumberToWord</con:name><con:value>5</con:value></con:property><con:property><con:name>NumberToDoller</con:name><con:value>3</con:value></con:property><con:property><con:name>Name</con:name><con:value>I am project property</con:value></con:property><con:property><con:name>Name1</con:name><con:value>I am project Property</con:value></con:property><con:property><con:name>NToW</con:name><con:value>Project Property</con:value></con:property><con:property><con:name>NToWProperty</con:name><con:value>Project Property</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
