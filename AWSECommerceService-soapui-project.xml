@@ -1,0 +1,2651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="47821dcf-3d84-4e6d-b83c-5347ea9f5a25" activeEnvironment="Default" name="AWSECommerceService" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="a4a763c1-a832-478a-a91e-e585d382393f" wsaVersion="NONE" name="AWSECommerceServiceBinding" type="wsdl" bindingName="{http://webservices.amazon.com/AWSECommerceService/2011-08-01}AWSECommerceServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl"><con:part><con:url>http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://webservices.amazon.com/AWSECommerceService/2011-08-01" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <types>
+    <xs:schema targetNamespace="http://webservices.amazon.com/AWSECommerceService/2011-08-01" elementFormDefault="qualified">
+      <xs:element name="Bin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BinName" type="xs:string"/>
+            <xs:element name="BinItemCount" type="xs:positiveInteger"/>
+            <xs:element name="BinParameter" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Name" type="xs:string"/>
+                  <xs:element name="Value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchBinSet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Bin" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+          <xs:attribute name="NarrowBy" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchBinSets">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:SearchBinSet" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ItemSearch">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:ItemSearchRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:ItemSearchRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ItemSearchRequest">
+        <xs:sequence>
+          <xs:element name="Actor" type="xs:string" minOccurs="0"/>
+          <xs:element name="Artist" type="xs:string" minOccurs="0"/>
+          <xs:element name="Availability" minOccurs="0">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Available"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element ref="tns:AudienceRating" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Author" type="xs:string" minOccurs="0"/>
+          <xs:element name="Brand" type="xs:string" minOccurs="0"/>
+          <xs:element name="BrowseNode" type="xs:string" minOccurs="0"/>
+          <xs:element name="Composer" type="xs:string" minOccurs="0"/>
+          <xs:element ref="tns:Condition" minOccurs="0"/>
+          <xs:element name="Conductor" type="xs:string" minOccurs="0"/>
+          <xs:element name="Director" type="xs:string" minOccurs="0"/>
+          <xs:element name="ItemPage" type="xs:positiveInteger" minOccurs="0"/>
+          <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+          <xs:element name="Manufacturer" type="xs:string" minOccurs="0"/>
+          <xs:element name="MaximumPrice" type="xs:nonNegativeInteger" minOccurs="0"/>
+          <xs:element name="MerchantId" type="xs:string" minOccurs="0"/>
+          <xs:element name="MinimumPrice" type="xs:nonNegativeInteger" minOccurs="0"/>
+          <xs:element name="MinPercentageOff" type="xs:nonNegativeInteger" minOccurs="0"/>
+          <xs:element name="MusicLabel" type="xs:string" minOccurs="0"/>
+          <xs:element name="Orchestra" type="xs:string" minOccurs="0"/>
+          <xs:element name="Power" type="xs:string" minOccurs="0"/>
+          <xs:element name="Publisher" type="xs:string" minOccurs="0"/>
+          <xs:element name="RelatedItemPage" type="tns:positiveIntegerOrAll" minOccurs="0"/>
+          <xs:element name="RelationshipType" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="SearchIndex" type="xs:string" minOccurs="0"/>
+          <xs:element name="Sort" type="xs:string" minOccurs="0"/>
+          <xs:element name="Title" type="xs:string" minOccurs="0"/>
+          <xs:element name="ReleaseDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="IncludeReviewsSummary" type="xs:string" minOccurs="0"/>
+          <xs:element name="TruncateReviewsAt" type="xs:nonNegativeInteger" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ItemLookup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:ItemLookupRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:ItemLookupRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ItemLookupRequest">
+        <xs:sequence>
+          <xs:element ref="tns:Condition" minOccurs="0"/>
+          <xs:element name="IdType" minOccurs="0">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="ASIN"/>
+                <xs:enumeration value="UPC"/>
+                <xs:enumeration value="SKU"/>
+                <xs:enumeration value="EAN"/>
+                <xs:enumeration value="ISBN"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="MerchantId" type="xs:string" minOccurs="0"/>
+          <xs:element name="ItemId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="SearchIndex" type="xs:string" minOccurs="0"/>
+          <xs:element name="VariationPage" type="tns:positiveIntegerOrAll" minOccurs="0"/>
+          <xs:element name="RelatedItemPage" type="tns:positiveIntegerOrAll" minOccurs="0"/>
+          <xs:element name="RelationshipType" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="IncludeReviewsSummary" type="xs:string" minOccurs="0"/>
+          <xs:element name="TruncateReviewsAt" type="xs:nonNegativeInteger" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SimilarityLookup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:SimilarityLookupRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:SimilarityLookupRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SimilarityLookupRequest">
+        <xs:sequence>
+          <xs:element ref="tns:Condition" minOccurs="0"/>
+          <xs:element name="ItemId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="MerchantId" type="xs:string" minOccurs="0"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="SimilarityType" minOccurs="0">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Intersection"/>
+                <xs:enumeration value="Random"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CartGet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:CartGetRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:CartGetRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartGetRequest">
+        <xs:sequence>
+          <xs:element name="CartId" type="xs:string" minOccurs="0"/>
+          <xs:element name="HMAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="MergeCart" type="xs:string" minOccurs="0"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CartAdd">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:CartAddRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:CartAddRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartAddRequest">
+        <xs:sequence>
+          <xs:element name="CartId" type="xs:string" minOccurs="0"/>
+          <xs:element name="HMAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="MergeCart" type="xs:string" minOccurs="0"/>
+          <xs:element name="Items" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                      <xs:element name="OfferListingId" type="xs:string" minOccurs="0"/>
+                      <xs:element name="Quantity" type="xs:positiveInteger" minOccurs="0"/>
+                      <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+                      <xs:element name="ListItemId" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CartCreate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:CartCreateRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:CartCreateRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartCreateRequest">
+        <xs:sequence>
+          <xs:element name="MergeCart" type="xs:string" minOccurs="0"/>
+          <xs:element name="Items" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                      <xs:element name="OfferListingId" type="xs:string" minOccurs="0"/>
+                      <xs:element name="Quantity" type="xs:positiveInteger" minOccurs="0"/>
+                      <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+                      <xs:element name="ListItemId" type="xs:string" minOccurs="0"/>
+                      <xs:element name="MetaData" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="Key" type="xs:string" minOccurs="0"/>
+                            <xs:element name="Value" type="xs:string" minOccurs="0"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CartModify">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:CartModifyRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:CartModifyRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartModifyRequest">
+        <xs:sequence>
+          <xs:element name="CartId" type="xs:string" minOccurs="0"/>
+          <xs:element name="HMAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="MergeCart" type="xs:string" minOccurs="0"/>
+          <xs:element name="Items" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="Action" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:enumeration value="MoveToCart"/>
+                            <xs:enumeration value="SaveForLater"/>
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="CartItemId" type="xs:string" minOccurs="0"/>
+                      <xs:element name="Quantity" type="xs:nonNegativeInteger" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CartClear">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:CartClearRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:CartClearRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartClearRequest">
+        <xs:sequence>
+          <xs:element name="CartId" type="xs:string" minOccurs="0"/>
+          <xs:element name="HMAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="MergeCart" type="xs:string" minOccurs="0"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BrowseNodeLookup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MarketplaceDomain" type="xs:string" minOccurs="0"/>
+            <xs:element name="AWSAccessKeyId" type="xs:string" minOccurs="0"/>
+            <xs:element name="AssociateTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Validate" type="xs:string" minOccurs="0"/>
+            <xs:element name="XMLEscaping" type="xs:string" minOccurs="0"/>
+            <xs:element name="Shared" type="tns:BrowseNodeLookupRequest" minOccurs="0"/>
+            <xs:element name="Request" type="tns:BrowseNodeLookupRequest" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="BrowseNodeLookupRequest">
+        <xs:sequence>
+          <xs:element name="BrowseNodeId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ResponseGroup" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Condition">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="All"/>
+            <xs:enumeration value="New"/>
+            <xs:enumeration value="Used"/>
+            <xs:enumeration value="Collectible"/>
+            <xs:enumeration value="Refurbished"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AudienceRating">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="G"/>
+            <xs:enumeration value="PG"/>
+            <xs:enumeration value="PG-13"/>
+            <xs:enumeration value="R"/>
+            <xs:enumeration value="NC-17"/>
+            <xs:enumeration value="NR"/>
+            <xs:enumeration value="Unrated"/>
+            <xs:enumeration value="6"/>
+            <xs:enumeration value="12"/>
+            <xs:enumeration value="16"/>
+            <xs:enumeration value="18"/>
+            <xs:enumeration value="FamilyViewing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ItemSearchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Items" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ItemLookupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Items" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SimilarityLookupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Items" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartGetResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Cart" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartAddResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Cart" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartCreateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Cart" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartModifyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Cart" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartClearResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:Cart" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BrowseNodeLookupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:OperationRequest" minOccurs="0"/>
+            <xs:element ref="tns:BrowseNodes" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OperationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:HTTPHeaders" minOccurs="0"/>
+            <xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+            <xs:element ref="tns:Arguments" minOccurs="0"/>
+            <xs:element ref="tns:Errors" minOccurs="0"/>
+            <xs:element name="RequestProcessingTime" type="xs:float" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Request">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsValid" type="xs:string" minOccurs="0"/>
+            <xs:element name="BrowseNodeLookupRequest" type="tns:BrowseNodeLookupRequest" minOccurs="0"/>
+            <xs:element name="ItemSearchRequest" type="tns:ItemSearchRequest" minOccurs="0"/>
+            <xs:element name="ItemLookupRequest" type="tns:ItemLookupRequest" minOccurs="0"/>
+            <xs:element name="SimilarityLookupRequest" type="tns:SimilarityLookupRequest" minOccurs="0"/>
+            <xs:element name="CartGetRequest" type="tns:CartGetRequest" minOccurs="0"/>
+            <xs:element name="CartAddRequest" type="tns:CartAddRequest" minOccurs="0"/>
+            <xs:element name="CartCreateRequest" type="tns:CartCreateRequest" minOccurs="0"/>
+            <xs:element name="CartModifyRequest" type="tns:CartModifyRequest" minOccurs="0"/>
+            <xs:element name="CartClearRequest" type="tns:CartClearRequest" minOccurs="0"/>
+            <xs:element ref="tns:Errors" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Arguments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Argument" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="Name" type="xs:string" use="required"/>
+                <xs:attribute name="Value" type="xs:string"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HTTPHeaders">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Header" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="Name" type="xs:string" use="required"/>
+                <xs:attribute name="Value" type="xs:string" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Errors">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Error" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Code" type="xs:string"/>
+                  <xs:element name="Message" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Request" minOccurs="0"/>
+            <xs:element ref="tns:CorrectedQuery" minOccurs="0"/>
+            <xs:element name="Qid" type="xs:string" minOccurs="0"/>
+            <xs:element name="EngineQuery" type="xs:string" minOccurs="0"/>
+            <xs:element name="TotalResults" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="TotalPages" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MoreSearchResultsUrl" type="xs:string" minOccurs="0"/>
+            <xs:element ref="tns:SearchResultsMap" minOccurs="0"/>
+            <xs:element ref="tns:Item" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="tns:SearchBinSets" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CorrectedQuery">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+            <xs:element name="Message" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Cart">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Request" minOccurs="0"/>
+            <xs:element name="CartId" type="xs:string"/>
+            <xs:element name="HMAC" type="xs:string"/>
+            <xs:element name="URLEncodedHMAC" type="xs:string"/>
+            <xs:element name="PurchaseURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="MobileCartURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="SubTotal" type="tns:Price" minOccurs="0"/>
+            <xs:element ref="tns:CartItems" minOccurs="0"/>
+            <xs:element ref="tns:SavedForLaterItems" minOccurs="0"/>
+            <xs:element ref="tns:SimilarProducts" minOccurs="0"/>
+            <xs:element ref="tns:TopSellers" minOccurs="0"/>
+            <xs:element ref="tns:NewReleases" minOccurs="0"/>
+            <xs:element ref="tns:SimilarViewedProducts" minOccurs="0"/>
+            <xs:element ref="tns:OtherCategoriesSimilarProducts" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchResultsMap">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SearchIndex" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="IndexName" type="xs:string"/>
+                  <xs:element name="Results" type="xs:nonNegativeInteger" minOccurs="0"/>
+                  <xs:element name="Pages" type="xs:nonNegativeInteger" minOccurs="0"/>
+                  <xs:element ref="tns:CorrectedQuery" minOccurs="0"/>
+                  <xs:element name="RelevanceRank" type="xs:positiveInteger"/>
+                  <xs:element name="ASIN" type="xs:string" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Item">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ASIN" type="xs:string"/>
+            <xs:element name="ParentASIN" type="xs:string" minOccurs="0"/>
+            <xs:element ref="tns:Errors" minOccurs="0"/>
+            <xs:element name="DetailPageURL" type="xs:string" minOccurs="0"/>
+            <xs:element ref="tns:ItemLinks" minOccurs="0"/>
+            <xs:element name="SalesRank" type="xs:string" minOccurs="0"/>
+            <xs:element name="SmallImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="MediumImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="LargeImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="ImageSets" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="tns:ImageSet" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="tns:ItemAttributes" minOccurs="0"/>
+            <xs:element name="VariationAttributes" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="tns:VariationAttribute" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="tns:RelatedItems" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="tns:Collections" minOccurs="0"/>
+            <xs:element name="Subjects" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Subject" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="tns:OfferSummary" minOccurs="0"/>
+            <xs:element ref="tns:Offers" minOccurs="0"/>
+            <xs:element ref="tns:VariationSummary" minOccurs="0"/>
+            <xs:element ref="tns:Variations" minOccurs="0"/>
+            <xs:element ref="tns:CustomerReviews" minOccurs="0"/>
+            <xs:element ref="tns:EditorialReviews" minOccurs="0"/>
+            <xs:element ref="tns:SimilarProducts" minOccurs="0"/>
+            <xs:element ref="tns:Accessories" minOccurs="0"/>
+            <xs:element ref="tns:Tracks" minOccurs="0"/>
+            <xs:element ref="tns:BrowseNodes" minOccurs="0"/>
+            <xs:element name="AlternateVersions" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="AlternateVersion" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ASIN" type="xs:string"/>
+                        <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Binding" type="xs:string" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ItemLinks">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ItemLink" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ItemLink">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+            <xs:element name="URL" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RelatedItems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Relationship" minOccurs="0" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Parents"/>
+                  <xs:enumeration value="Children"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="RelationshipType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="RelatedItemCount" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="RelatedItemPageCount" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="RelatedItemPage" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="tns:RelatedItem" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RelatedItem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Item" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OfferSummary">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LowestNewPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="LowestUsedPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="LowestCollectiblePrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="LowestRefurbishedPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="TotalNew" type="xs:string" minOccurs="0"/>
+            <xs:element name="TotalUsed" type="xs:string" minOccurs="0"/>
+            <xs:element name="TotalCollectible" type="xs:string" minOccurs="0"/>
+            <xs:element name="TotalRefurbished" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Offers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TotalOffers" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="TotalOfferPages" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MoreOffersUrl" type="xs:string" minOccurs="0"/>
+            <xs:element ref="tns:Offer" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Offer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Merchant" minOccurs="0"/>
+            <xs:element ref="tns:OfferAttributes" minOccurs="0"/>
+            <xs:element ref="tns:OfferListing" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="tns:LoyaltyPoints" minOccurs="0"/>
+            <xs:element ref="tns:Promotions" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OfferAttributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Condition" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Merchant">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OfferListing">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="OfferListingId" type="xs:string" minOccurs="0"/>
+            <xs:element name="Price" type="tns:Price" minOccurs="0"/>
+            <xs:element name="SalePrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="AmountSaved" type="tns:Price" minOccurs="0"/>
+            <xs:element name="PercentageSaved" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="Availability" type="xs:string" minOccurs="0"/>
+            <xs:element name="AvailabilityAttributes" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="AvailabilityType" type="xs:string" minOccurs="0"/>
+                  <xs:element name="IsPreorder" type="xs:boolean" minOccurs="0"/>
+                  <xs:element name="MinimumHours" type="xs:integer" minOccurs="0"/>
+                  <xs:element name="MaximumHours" type="xs:integer" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="IsEligibleForSuperSaverShipping" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="IsEligibleForPrime" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoyaltyPoints">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Points" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="TypicalRedemptionValue" type="tns:Price" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VariationAttribute">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Value" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VariationSummary">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LowestPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="HighestPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="LowestSalePrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="HighestSalePrice" type="tns:Price" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Variations">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TotalVariations" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="TotalVariationPages" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element ref="tns:VariationDimensions" minOccurs="0"/>
+            <xs:element ref="tns:Item" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VariationDimensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="VariationDimension" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditorialReviews">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:EditorialReview" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Collections">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Collection" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CollectionSummary" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="LowestListPrice" type="tns:Price" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="HighestListPrice" type="tns:Price" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="LowestSalePrice" type="tns:Price" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="HighestSalePrice" type="tns:Price" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CollectionParent" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ASIN" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="Title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CollectionItem" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ASIN" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="Title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditorialReview">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Source" type="xs:string" minOccurs="0"/>
+            <xs:element name="Content" type="xs:string" minOccurs="0"/>
+            <xs:element name="IsLinkSuppressed" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CustomerReviews">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IFrameURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="HasReviews" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Tracks">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Disc" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Track" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute name="Number" type="xs:positiveInteger" use="required"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="Number" type="xs:positiveInteger" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SimilarProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SimilarProduct" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TopSellers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TopSeller" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NewReleases">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NewRelease" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TopItemSet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Type" type="xs:string" minOccurs="0"/>
+            <xs:element name="TopItem" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                  <xs:element name="DetailPageURL" type="xs:string" minOccurs="0"/>
+                  <xs:element name="ProductGroup" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Author" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="Artist" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="Actor" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SimilarViewedProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SimilarViewedProduct" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OtherCategoriesSimilarProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="OtherCategoriesSimilarProduct" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Accessories">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Accessory" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+                  <xs:element name="Title" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Promotions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Promotion" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Promotion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Summary" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PromotionId" type="xs:string"/>
+                  <xs:element name="Category" type="xs:string" minOccurs="0"/>
+                  <xs:element name="StartDate" type="xs:string" minOccurs="0"/>
+                  <xs:element name="EndDate" type="xs:string" minOccurs="0"/>
+                  <xs:element name="EligibilityRequirementDescription" type="xs:string" minOccurs="0"/>
+                  <xs:element name="BenefitDescription" type="xs:string" minOccurs="0"/>
+                  <xs:element name="TermsAndConditions" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BrowseNodes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Request" minOccurs="0"/>
+            <xs:element ref="tns:BrowseNode" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Property">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="Value" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BrowseNode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BrowseNodeId" type="xs:string" minOccurs="0"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="IsCategoryRoot" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="Properties" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="tns:Property" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Children" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="tns:BrowseNode" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Ancestors" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="tns:BrowseNode" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="tns:TopSellers" minOccurs="0"/>
+            <xs:element ref="tns:NewReleases" minOccurs="0"/>
+            <xs:element ref="tns:TopItemSet" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CartItems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubTotal" type="tns:Price" minOccurs="0"/>
+            <xs:element name="CartItem" type="tns:CartItem" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SavedForLaterItems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubTotal" type="tns:Price" minOccurs="0"/>
+            <xs:element name="SavedForLaterItem" type="tns:CartItem" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CartItem">
+        <xs:sequence>
+          <xs:element name="CartItemId" type="xs:string"/>
+          <xs:element name="ASIN" type="xs:string" minOccurs="0"/>
+          <xs:element name="SellerNickname" type="xs:string" minOccurs="0"/>
+          <xs:element name="Quantity" type="xs:string"/>
+          <xs:element name="Title" type="xs:string" minOccurs="0"/>
+          <xs:element name="ProductGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="MetaData" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="KeyValuePair" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="Key" type="xs:string"/>
+                      <xs:element name="Value" type="xs:string"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Price" type="tns:Price" minOccurs="0"/>
+          <xs:element name="ItemTotal" type="tns:Price" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Price">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:integer" minOccurs="0"/>
+          <xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+          <xs:element name="FormattedPrice" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ImageSet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SwatchImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="SmallImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="ThumbnailImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="TinyImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="MediumImage" type="tns:Image" minOccurs="0"/>
+            <xs:element name="LargeImage" type="tns:Image" minOccurs="0"/>
+          </xs:sequence>
+          <xs:attribute name="Category" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Image">
+        <xs:sequence>
+          <xs:element name="URL" type="xs:string"/>
+          <xs:element name="Height" type="tns:DecimalWithUnits"/>
+          <xs:element name="Width" type="tns:DecimalWithUnits"/>
+          <xs:element name="IsVerified" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ItemAttributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Actor" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Artist" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="AspectRatio" type="xs:string" minOccurs="0"/>
+            <xs:element name="AudienceRating" type="xs:string" minOccurs="0"/>
+            <xs:element name="AudioFormat" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Author" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Binding" type="xs:string" minOccurs="0"/>
+            <xs:element name="Brand" type="xs:string" minOccurs="0"/>
+            <xs:element name="CatalogNumberList" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CatalogNumberListElement" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Category" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="CEROAgeRating" type="xs:string" minOccurs="0"/>
+            <xs:element name="ClothingSize" type="xs:string" minOccurs="0"/>
+            <xs:element name="Color" type="xs:string" minOccurs="0"/>
+            <xs:element name="Creator" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="Role" type="xs:string" use="required"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Department" type="xs:string" minOccurs="0"/>
+            <xs:element name="Director" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="EAN" type="xs:string" minOccurs="0"/>
+            <xs:element name="EANList" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EANListElement" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Edition" type="xs:string" minOccurs="0"/>
+            <xs:element name="EISBN" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="EpisodeSequence" type="xs:string" minOccurs="0"/>
+            <xs:element name="ESRBAgeRating" type="xs:string" minOccurs="0"/>
+            <xs:element name="Feature" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Format" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Genre" type="xs:string" minOccurs="0"/>
+            <xs:element name="HardwarePlatform" type="xs:string" minOccurs="0"/>
+            <xs:element name="HazardousMaterialType" type="xs:string" minOccurs="0"/>
+            <xs:element name="IsAdultProduct" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="IsAutographed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="ISBN" type="xs:string" minOccurs="0"/>
+            <xs:element name="IsEligibleForTradeIn" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="IsMemorabilia" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="IssuesPerYear" type="xs:string" minOccurs="0"/>
+            <xs:element name="ItemDimensions" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Height" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Length" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Weight" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Width" type="tns:DecimalWithUnits" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ItemPartNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="Label" type="xs:string" minOccurs="0"/>
+            <xs:element name="Languages" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Language" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Name" type="xs:string"/>
+                        <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                        <xs:element name="AudioFormat" type="xs:string" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="LegalDisclaimer" type="xs:string" minOccurs="0"/>
+            <xs:element name="ListPrice" type="tns:Price" minOccurs="0"/>
+            <xs:element name="MagazineType" type="xs:string" minOccurs="0"/>
+            <xs:element name="Manufacturer" type="xs:string" minOccurs="0"/>
+            <xs:element name="ManufacturerMaximumAge" type="tns:DecimalWithUnits" minOccurs="0"/>
+            <xs:element name="ManufacturerMinimumAge" type="tns:DecimalWithUnits" minOccurs="0"/>
+            <xs:element name="ManufacturerPartsWarrantyDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="MediaType" type="xs:string" minOccurs="0"/>
+            <xs:element name="Model" type="xs:string" minOccurs="0"/>
+            <xs:element name="ModelYear" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MPN" type="xs:string" minOccurs="0"/>
+            <xs:element name="NumberOfDiscs" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="NumberOfIssues" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="NumberOfItems" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="NumberOfPages" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="NumberOfTracks" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="OperatingSystem" type="xs:string" minOccurs="0"/>
+            <xs:element name="PackageDimensions" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Height" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Length" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Weight" type="tns:DecimalWithUnits" minOccurs="0"/>
+                  <xs:element name="Width" type="tns:DecimalWithUnits" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PackageQuantity" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="PartNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="PictureFormat" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Platform" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ProductGroup" type="xs:string" minOccurs="0"/>
+            <xs:element name="ProductTypeName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ProductTypeSubcategory" type="xs:string" minOccurs="0"/>
+            <xs:element name="PublicationDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="Publisher" type="xs:string" minOccurs="0"/>
+            <xs:element name="RegionCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="ReleaseDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="RunningTime" type="tns:DecimalWithUnits" minOccurs="0"/>
+            <xs:element name="SeikodoProductCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="Size" type="xs:string" minOccurs="0"/>
+            <xs:element name="SKU" type="xs:string" minOccurs="0"/>
+            <xs:element name="Studio" type="xs:string" minOccurs="0"/>
+            <xs:element name="SubscriptionLength" type="tns:NonNegativeIntegerWithUnits" minOccurs="0"/>
+            <xs:element name="Title" type="xs:string" minOccurs="0"/>
+            <xs:element name="TrackSequence" type="xs:string" minOccurs="0"/>
+            <xs:element name="TradeInValue" type="tns:Price" minOccurs="0"/>
+            <xs:element name="UPC" type="xs:string" minOccurs="0"/>
+            <xs:element name="UPCList" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UPCListElement" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Warranty" type="xs:string" minOccurs="0"/>
+            <xs:element name="WEEETaxValue" type="tns:Price" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="NonNegativeIntegerWithUnits">
+        <xs:simpleContent>
+          <xs:extension base="xs:nonNegativeInteger">
+            <xs:attribute name="Units" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="DecimalWithUnits">
+        <xs:simpleContent>
+          <xs:extension base="xs:decimal">
+            <xs:attribute name="Units" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="StringWithUnits">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="Units" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:simpleType name="positiveIntegerOrAll">
+        <xs:union>
+          <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger"/>
+          </xs:simpleType>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="All"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:union>
+      </xs:simpleType>
+    </xs:schema>
+  </types>
+  <message name="ItemSearchRequestMsg">
+    <part name="body" element="tns:ItemSearch"/>
+  </message>
+  <message name="ItemSearchResponseMsg">
+    <part name="body" element="tns:ItemSearchResponse"/>
+  </message>
+  <message name="ItemLookupRequestMsg">
+    <part name="body" element="tns:ItemLookup"/>
+  </message>
+  <message name="ItemLookupResponseMsg">
+    <part name="body" element="tns:ItemLookupResponse"/>
+  </message>
+  <message name="BrowseNodeLookupRequestMsg">
+    <part name="body" element="tns:BrowseNodeLookup"/>
+  </message>
+  <message name="BrowseNodeLookupResponseMsg">
+    <part name="body" element="tns:BrowseNodeLookupResponse"/>
+  </message>
+  <message name="SimilarityLookupRequestMsg">
+    <part name="body" element="tns:SimilarityLookup"/>
+  </message>
+  <message name="SimilarityLookupResponseMsg">
+    <part name="body" element="tns:SimilarityLookupResponse"/>
+  </message>
+  <message name="CartGetRequestMsg">
+    <part name="body" element="tns:CartGet"/>
+  </message>
+  <message name="CartGetResponseMsg">
+    <part name="body" element="tns:CartGetResponse"/>
+  </message>
+  <message name="CartAddRequestMsg">
+    <part name="body" element="tns:CartAdd"/>
+  </message>
+  <message name="CartAddResponseMsg">
+    <part name="body" element="tns:CartAddResponse"/>
+  </message>
+  <message name="CartCreateRequestMsg">
+    <part name="body" element="tns:CartCreate"/>
+  </message>
+  <message name="CartCreateResponseMsg">
+    <part name="body" element="tns:CartCreateResponse"/>
+  </message>
+  <message name="CartModifyRequestMsg">
+    <part name="body" element="tns:CartModify"/>
+  </message>
+  <message name="CartModifyResponseMsg">
+    <part name="body" element="tns:CartModifyResponse"/>
+  </message>
+  <message name="CartClearRequestMsg">
+    <part name="body" element="tns:CartClear"/>
+  </message>
+  <message name="CartClearResponseMsg">
+    <part name="body" element="tns:CartClearResponse"/>
+  </message>
+  <portType name="AWSECommerceServicePortType">
+    <operation name="ItemSearch">
+      <input message="tns:ItemSearchRequestMsg"/>
+      <output message="tns:ItemSearchResponseMsg"/>
+    </operation>
+    <operation name="ItemLookup">
+      <input message="tns:ItemLookupRequestMsg"/>
+      <output message="tns:ItemLookupResponseMsg"/>
+    </operation>
+    <operation name="BrowseNodeLookup">
+      <input message="tns:BrowseNodeLookupRequestMsg"/>
+      <output message="tns:BrowseNodeLookupResponseMsg"/>
+    </operation>
+    <operation name="SimilarityLookup">
+      <input message="tns:SimilarityLookupRequestMsg"/>
+      <output message="tns:SimilarityLookupResponseMsg"/>
+    </operation>
+    <operation name="CartGet">
+      <input message="tns:CartGetRequestMsg"/>
+      <output message="tns:CartGetResponseMsg"/>
+    </operation>
+    <operation name="CartAdd">
+      <input message="tns:CartAddRequestMsg"/>
+      <output message="tns:CartAddResponseMsg"/>
+    </operation>
+    <operation name="CartCreate">
+      <input message="tns:CartCreateRequestMsg"/>
+      <output message="tns:CartCreateResponseMsg"/>
+    </operation>
+    <operation name="CartModify">
+      <input message="tns:CartModifyRequestMsg"/>
+      <output message="tns:CartModifyResponseMsg"/>
+    </operation>
+    <operation name="CartClear">
+      <input message="tns:CartClearRequestMsg"/>
+      <output message="tns:CartClearResponseMsg"/>
+    </operation>
+  </portType>
+  <binding name="AWSECommerceServiceBinding" type="tns:AWSECommerceServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ItemSearch">
+      <soap:operation soapAction="http://soap.amazon.com/ItemSearch"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ItemLookup">
+      <soap:operation soapAction="http://soap.amazon.com/ItemLookup"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BrowseNodeLookup">
+      <soap:operation soapAction="http://soap.amazon.com/BrowseNodeLookup"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SimilarityLookup">
+      <soap:operation soapAction="http://soap.amazon.com/SimilarityLookup"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CartGet">
+      <soap:operation soapAction="http://soap.amazon.com/CartGet"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CartCreate">
+      <soap:operation soapAction="http://soap.amazon.com/CartCreate"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CartAdd">
+      <soap:operation soapAction="http://soap.amazon.com/CartAdd"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CartModify">
+      <soap:operation soapAction="http://soap.amazon.com/CartModify"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CartClear">
+      <soap:operation soapAction="http://soap.amazon.com/CartClear"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AWSECommerceService">
+    <port name="AWSECommerceServicePort" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.com/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortCA" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortCN" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.cn/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortDE" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.de/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortES" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.es/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortFR" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.fr/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortIN" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.in/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortIT" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.it/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortJP" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.co.jp/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortUK" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.co.uk/onca/soap?Service=AWSECommerceService"/>
+    </port>
+    <port name="AWSECommerceServicePortUS" binding="tns:AWSECommerceServiceBinding">
+      <soap:address location="https://webservices.amazon.com/onca/soap?Service=AWSECommerceService"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.cn/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.co.jp/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.co.uk/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.com/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.de/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.es/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.fr/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.in/onca/soap?Service=AWSECommerceService</con:endpoint><con:endpoint>https://webservices.amazon.it/onca/soap?Service=AWSECommerceService</con:endpoint></con:endpoints><con:operation id="8027e5ae-34d6-49c8-a50b-b5a3f6a36185" isOneWay="false" action="http://soap.amazon.com/BrowseNodeLookup" name="BrowseNodeLookup" bindingOperationName="BrowseNodeLookup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8760b610-20dc-4161-a0b0-639ddfb087c7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:BrowseNodeLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:BrowseNodeId>?</ns:BrowseNodeId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:BrowseNodeId>?</ns:BrowseNodeId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:BrowseNodeLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/BrowseNodeLookup"/></con:call></con:operation><con:operation id="1d075d6a-1603-4f08-b9f0-3be14fb5b655" isOneWay="false" action="http://soap.amazon.com/CartAdd" name="CartAdd" bindingOperationName="CartAdd" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ed3915ab-1efc-4208-9a77-4d78972f773b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartAdd>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartAdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/CartAdd"/></con:call></con:operation><con:operation id="30a128b0-b023-4120-bec7-746b129f77d3" isOneWay="false" action="http://soap.amazon.com/CartClear" name="CartClear" bindingOperationName="CartClear" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="02970a9e-95ae-4116-9d19-4c450572453f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartClear>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartClear>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/CartClear"/></con:call></con:operation><con:operation id="9a0a90c7-6504-4c37-9766-75c813bb0c0e" isOneWay="false" action="http://soap.amazon.com/CartCreate" name="CartCreate" bindingOperationName="CartCreate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="82175120-f102-47af-b593-9a217f72801f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartCreate>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+                  <!--Zero or more repetitions:-->\r
+                  <ns:MetaData>\r
+                     <!--Optional:-->\r
+                     <ns:Key>?</ns:Key>\r
+                     <!--Optional:-->\r
+                     <ns:Value>?</ns:Value>\r
+                  </ns:MetaData>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+                  <!--Zero or more repetitions:-->\r
+                  <ns:MetaData>\r
+                     <!--Optional:-->\r
+                     <ns:Key>?</ns:Key>\r
+                     <!--Optional:-->\r
+                     <ns:Value>?</ns:Value>\r
+                  </ns:MetaData>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartCreate>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/CartCreate"/></con:call></con:operation><con:operation id="82c5cd2e-7876-48c4-b034-c02c0b0666f2" isOneWay="false" action="http://soap.amazon.com/CartGet" name="CartGet" bindingOperationName="CartGet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a905b30-11d2-4358-bea5-f44e6dbe66bf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartGet>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartGet>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/CartGet"/></con:call></con:operation><con:operation id="b4e2ca1b-c7cf-4bae-a915-c433e73a71e8" isOneWay="false" action="http://soap.amazon.com/CartModify" name="CartModify" bindingOperationName="CartModify" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a1031b2c-84dd-49fe-8bbf-8b0ba744208d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartModify>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:Action>?</ns:Action>\r
+                  <!--Optional:-->\r
+                  <ns:CartItemId>?</ns:CartItemId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:Action>?</ns:Action>\r
+                  <!--Optional:-->\r
+                  <ns:CartItemId>?</ns:CartItemId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartModify>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/CartModify"/></con:call></con:operation><con:operation id="2af12eb7-c33b-4c4b-ba23-3b0281b4e033" isOneWay="false" action="http://soap.amazon.com/ItemLookup" name="ItemLookup" bindingOperationName="ItemLookup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5bbaee1b-c9c1-4734-8373-ada35e67ecae" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:ItemLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:IdType>?</ns:IdType>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:VariationPage>?</ns:VariationPage>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:IdType>?</ns:IdType>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:VariationPage>?</ns:VariationPage>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Request>\r
+      </ns:ItemLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/ItemLookup"/></con:call></con:operation><con:operation id="d8385fac-1d7e-4882-8f08-c926c9f0a382" isOneWay="false" action="http://soap.amazon.com/ItemSearch" name="ItemSearch" bindingOperationName="ItemSearch" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1936e5c5-c371-4124-93cd-82f7700c1f76" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:ItemSearch>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Actor>?</ns:Actor>\r
+            <!--Optional:-->\r
+            <ns:Artist>?</ns:Artist>\r
+            <!--Optional:-->\r
+            <ns:Availability>?</ns:Availability>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:AudienceRating>?</ns:AudienceRating>\r
+            <!--Optional:-->\r
+            <ns:Author>?</ns:Author>\r
+            <!--Optional:-->\r
+            <ns:Brand>?</ns:Brand>\r
+            <!--Optional:-->\r
+            <ns:BrowseNode>?</ns:BrowseNode>\r
+            <!--Optional:-->\r
+            <ns:Composer>?</ns:Composer>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:Conductor>?</ns:Conductor>\r
+            <!--Optional:-->\r
+            <ns:Director>?</ns:Director>\r
+            <!--Optional:-->\r
+            <ns:ItemPage>?</ns:ItemPage>\r
+            <!--Optional:-->\r
+            <ns:Keywords>?</ns:Keywords>\r
+            <!--Optional:-->\r
+            <ns:Manufacturer>?</ns:Manufacturer>\r
+            <!--Optional:-->\r
+            <ns:MaximumPrice>?</ns:MaximumPrice>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Optional:-->\r
+            <ns:MinimumPrice>?</ns:MinimumPrice>\r
+            <!--Optional:-->\r
+            <ns:MinPercentageOff>?</ns:MinPercentageOff>\r
+            <!--Optional:-->\r
+            <ns:MusicLabel>?</ns:MusicLabel>\r
+            <!--Optional:-->\r
+            <ns:Orchestra>?</ns:Orchestra>\r
+            <!--Optional:-->\r
+            <ns:Power>?</ns:Power>\r
+            <!--Optional:-->\r
+            <ns:Publisher>?</ns:Publisher>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:Sort>?</ns:Sort>\r
+            <!--Optional:-->\r
+            <ns:Title>?</ns:Title>\r
+            <!--Optional:-->\r
+            <ns:ReleaseDate>?</ns:ReleaseDate>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Actor>?</ns:Actor>\r
+            <!--Optional:-->\r
+            <ns:Artist>?</ns:Artist>\r
+            <!--Optional:-->\r
+            <ns:Availability>?</ns:Availability>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:AudienceRating>?</ns:AudienceRating>\r
+            <!--Optional:-->\r
+            <ns:Author>?</ns:Author>\r
+            <!--Optional:-->\r
+            <ns:Brand>?</ns:Brand>\r
+            <!--Optional:-->\r
+            <ns:BrowseNode>?</ns:BrowseNode>\r
+            <!--Optional:-->\r
+            <ns:Composer>?</ns:Composer>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:Conductor>?</ns:Conductor>\r
+            <!--Optional:-->\r
+            <ns:Director>?</ns:Director>\r
+            <!--Optional:-->\r
+            <ns:ItemPage>?</ns:ItemPage>\r
+            <!--Optional:-->\r
+            <ns:Keywords>?</ns:Keywords>\r
+            <!--Optional:-->\r
+            <ns:Manufacturer>?</ns:Manufacturer>\r
+            <!--Optional:-->\r
+            <ns:MaximumPrice>?</ns:MaximumPrice>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Optional:-->\r
+            <ns:MinimumPrice>?</ns:MinimumPrice>\r
+            <!--Optional:-->\r
+            <ns:MinPercentageOff>?</ns:MinPercentageOff>\r
+            <!--Optional:-->\r
+            <ns:MusicLabel>?</ns:MusicLabel>\r
+            <!--Optional:-->\r
+            <ns:Orchestra>?</ns:Orchestra>\r
+            <!--Optional:-->\r
+            <ns:Power>?</ns:Power>\r
+            <!--Optional:-->\r
+            <ns:Publisher>?</ns:Publisher>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:Sort>?</ns:Sort>\r
+            <!--Optional:-->\r
+            <ns:Title>?</ns:Title>\r
+            <!--Optional:-->\r
+            <ns:ReleaseDate>?</ns:ReleaseDate>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Request>\r
+      </ns:ItemSearch>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/ItemSearch"/></con:call></con:operation><con:operation id="26ccb7c4-a3b4-466f-ade6-1faa505d593e" isOneWay="false" action="http://soap.amazon.com/SimilarityLookup" name="SimilarityLookup" bindingOperationName="SimilarityLookup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4e7917a3-19cc-4bdb-b846-59068e3c9f13" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:SimilarityLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>?</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SimilarityType>?</ns:SimilarityType>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SimilarityType>?</ns:SimilarityType>\r
+         </ns:Request>\r
+      </ns:SimilarityLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.amazon.com/SimilarityLookup"/></con:call></con:operation></con:interface><con:testSuite id="ce8f5bb2-c4d5-4e6e-a8ba-39289f7d9484" name="TestSuite - AWSECommerceService"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="6dae8fa2-c92d-47eb-bf05-b9a0702a05b1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="BrowseNodeLookup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="ce86b987-144c-4e5b-b3f1-41ab8d8a62c9" name="BrowseNodeLookup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>BrowseNodeLookup</con:operation><con:request name="BrowseNodeLookup" id="0441f911-e905-48a0-b8d8-dae170242553"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:BrowseNodeLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>webservices.amazon.ca</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:BrowseNodeId>?</ns:BrowseNodeId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:BrowseNodeId>?</ns:BrowseNodeId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:BrowseNodeLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="465ccff3-f349-47c8-8549-236026740742" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="93e19b65-0bde-4ba2-958c-066b5e47519a" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/BrowseNodeLookup" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e4291844-3dce-4cc2-ac18-f7f77dcf717d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CartAdd TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="07701430-8793-4546-8740-fd0e461ede95" name="CartAdd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>CartAdd</con:operation><con:request name="CartAdd" id="e1ab8bf0-737e-4755-ac59-4b3e5198abff"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartAdd>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartAdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3194305a-c8fd-48e2-8fbc-b3e191ebea7c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/CartAdd" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b059a1d2-9914-46bc-ac88-582a7df3ad6b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CartClear TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="10ac466c-29c0-450b-96c5-9f0c7e678844" name="CartClear"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>CartClear</con:operation><con:request name="CartClear" id="4c1d76c6-bd19-44a3-86cb-2307fc909153"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartClear>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartClear>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" id="d28eea57-e73b-44be-89aa-7d10e1762465" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:assertion type="SOAP Response" id="9f3ac918-5251-45ff-9658-e871dfd1d650" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/CartClear" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="62ff94fb-f9ca-4172-acd5-d00831030b10" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CartCreate TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="47788032-c134-4c5b-9467-ef9b52cc9057" name="CartCreate"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>CartCreate</con:operation><con:request name="CartCreate" id="30abfb54-af75-4789-9474-d94b7b6210f1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartCreate>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+                  <!--Zero or more repetitions:-->\r
+                  <ns:MetaData>\r
+                     <!--Optional:-->\r
+                     <ns:Key>?</ns:Key>\r
+                     <!--Optional:-->\r
+                     <ns:Value>?</ns:Value>\r
+                  </ns:MetaData>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:ASIN>?</ns:ASIN>\r
+                  <!--Optional:-->\r
+                  <ns:OfferListingId>?</ns:OfferListingId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+                  <!--Optional:-->\r
+                  <ns:AssociateTag>?</ns:AssociateTag>\r
+                  <!--Optional:-->\r
+                  <ns:ListItemId>?</ns:ListItemId>\r
+                  <!--Zero or more repetitions:-->\r
+                  <ns:MetaData>\r
+                     <!--Optional:-->\r
+                     <ns:Key>?</ns:Key>\r
+                     <!--Optional:-->\r
+                     <ns:Value>?</ns:Value>\r
+                  </ns:MetaData>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartCreate>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5bae8231-1bdf-4194-9162-096d38e4c1e3" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="c6137335-1a4a-4ea9-aa5f-a1557057ccad" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/CartCreate" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="313e9754-a642-48e5-a879-0d575ea54cfd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CartGet TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="323c0f83-de96-4659-aabd-497315ffe571" name="CartGet"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>CartGet</con:operation><con:request name="CartGet" id="3ea65d1d-8e3b-487e-b1cb-c11c90bec6b8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartGet>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartGet>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="41c50410-221d-4a1f-9dae-dbfd1b8464f6" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/CartGet" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="08339f8c-bf44-46a3-af23-eb2ac9eedd57" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CartModify TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e9a977b0-8915-4dc7-a59b-dd5537346c66" name="CartModify"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>CartModify</con:operation><con:request name="CartModify" id="d0f6cbdb-c772-4330-afad-499ccace0e38"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:CartModify>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:Action>?</ns:Action>\r
+                  <!--Optional:-->\r
+                  <ns:CartItemId>?</ns:CartItemId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:CartId>?</ns:CartId>\r
+            <!--Optional:-->\r
+            <ns:HMAC>?</ns:HMAC>\r
+            <!--Optional:-->\r
+            <ns:MergeCart>?</ns:MergeCart>\r
+            <!--Optional:-->\r
+            <ns:Items>\r
+               <!--Zero or more repetitions:-->\r
+               <ns:Item>\r
+                  <!--Optional:-->\r
+                  <ns:Action>?</ns:Action>\r
+                  <!--Optional:-->\r
+                  <ns:CartItemId>?</ns:CartItemId>\r
+                  <!--Optional:-->\r
+                  <ns:Quantity>?</ns:Quantity>\r
+               </ns:Item>\r
+            </ns:Items>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+         </ns:Request>\r
+      </ns:CartModify>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cb60227a-2122-4c3d-ac12-940429d60282" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="49044f2c-6236-4d54-a38d-5793345c4427" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/CartModify" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="08168548-91b8-4373-8316-1e961536f822" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ItemLookup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="18c4f17c-2c21-44c3-8139-11ec5d22d7ba" name="ItemLookup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>ItemLookup</con:operation><con:request name="ItemLookup" id="e7e5d376-5164-45e7-8a01-21ad8ae97a48"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:ItemLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:IdType>?</ns:IdType>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:VariationPage>?</ns:VariationPage>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:IdType>?</ns:IdType>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:VariationPage>?</ns:VariationPage>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Request>\r
+      </ns:ItemLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="41d875e5-890f-4083-8e92-11dea19637e9" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="2448c6cc-f042-42ba-af99-b95e9a8cd4ae" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/ItemLookup" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="da3e3ce3-8086-470b-9b0a-713023a9b56e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ItemSearch TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="941762df-7c0c-48e5-bac1-24ef78451b9c" name="ItemSearch"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>ItemSearch</con:operation><con:request name="ItemSearch" id="cd409996-6abc-4792-b8f9-1ec520e6f58d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:ItemSearch>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>SmartBear</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Actor>?</ns:Actor>\r
+            <!--Optional:-->\r
+            <ns:Artist>?</ns:Artist>\r
+            <!--Optional:-->\r
+            <ns:Availability>?</ns:Availability>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:AudienceRating>?</ns:AudienceRating>\r
+            <!--Optional:-->\r
+            <ns:Author>?</ns:Author>\r
+            <!--Optional:-->\r
+            <ns:Brand>?</ns:Brand>\r
+            <!--Optional:-->\r
+            <ns:BrowseNode>?</ns:BrowseNode>\r
+            <!--Optional:-->\r
+            <ns:Composer>?</ns:Composer>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:Conductor>?</ns:Conductor>\r
+            <!--Optional:-->\r
+            <ns:Director>?</ns:Director>\r
+            <!--Optional:-->\r
+            <ns:ItemPage>?</ns:ItemPage>\r
+            <!--Optional:-->\r
+            <ns:Keywords>?</ns:Keywords>\r
+            <!--Optional:-->\r
+            <ns:Manufacturer>?</ns:Manufacturer>\r
+            <!--Optional:-->\r
+            <ns:MaximumPrice>?</ns:MaximumPrice>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Optional:-->\r
+            <ns:MinimumPrice>?</ns:MinimumPrice>\r
+            <!--Optional:-->\r
+            <ns:MinPercentageOff>?</ns:MinPercentageOff>\r
+            <!--Optional:-->\r
+            <ns:MusicLabel>?</ns:MusicLabel>\r
+            <!--Optional:-->\r
+            <ns:Orchestra>?</ns:Orchestra>\r
+            <!--Optional:-->\r
+            <ns:Power>?</ns:Power>\r
+            <!--Optional:-->\r
+            <ns:Publisher>?</ns:Publisher>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>?</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:Sort>?</ns:Sort>\r
+            <!--Optional:-->\r
+            <ns:Title>?</ns:Title>\r
+            <!--Optional:-->\r
+            <ns:ReleaseDate>?</ns:ReleaseDate>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Actor>?</ns:Actor>\r
+            <!--Optional:-->\r
+            <ns:Artist>?</ns:Artist>\r
+            <!--Optional:-->\r
+            <ns:Availability>?</ns:Availability>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:AudienceRating>?</ns:AudienceRating>\r
+            <!--Optional:-->\r
+            <ns:Author>?</ns:Author>\r
+            <!--Optional:-->\r
+            <ns:Brand>?</ns:Brand>\r
+            <!--Optional:-->\r
+            <ns:BrowseNode>?</ns:BrowseNode>\r
+            <!--Optional:-->\r
+            <ns:Composer>?</ns:Composer>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Optional:-->\r
+            <ns:Conductor>?</ns:Conductor>\r
+            <!--Optional:-->\r
+            <ns:Director>?</ns:Director>\r
+            <!--Optional:-->\r
+            <ns:ItemPage>?</ns:ItemPage>\r
+            <!--Optional:-->\r
+            <ns:Keywords>soapui</ns:Keywords>\r
+            <!--Optional:-->\r
+            <ns:Manufacturer>?</ns:Manufacturer>\r
+            <!--Optional:-->\r
+            <ns:MaximumPrice>?</ns:MaximumPrice>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Optional:-->\r
+            <ns:MinimumPrice>?</ns:MinimumPrice>\r
+            <!--Optional:-->\r
+            <ns:MinPercentageOff>?</ns:MinPercentageOff>\r
+            <!--Optional:-->\r
+            <ns:MusicLabel>?</ns:MusicLabel>\r
+            <!--Optional:-->\r
+            <ns:Orchestra>?</ns:Orchestra>\r
+            <!--Optional:-->\r
+            <ns:Power>?</ns:Power>\r
+            <!--Optional:-->\r
+            <ns:Publisher>?</ns:Publisher>\r
+            <!--Optional:-->\r
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:RelationshipType>?</ns:RelationshipType>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SearchIndex>All</ns:SearchIndex>\r
+            <!--Optional:-->\r
+            <ns:Sort>?</ns:Sort>\r
+            <!--Optional:-->\r
+            <ns:Title>?</ns:Title>\r
+            <!--Optional:-->\r
+            <ns:ReleaseDate>?</ns:ReleaseDate>\r
+            <!--Optional:-->\r
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>\r
+            <!--Optional:-->\r
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>\r
+         </ns:Request>\r
+      </ns:ItemSearch>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8d7929cf-8028-486e-a417-006a3600ee7a" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/ItemSearch" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="70657afe-9980-4e5a-9933-861887bfb74f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SimilarityLookup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9e78eabd-7b3e-4d0b-8df6-ed928e38db1d" name="SimilarityLookup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AWSECommerceServiceBinding</con:interface><con:operation>SimilarityLookup</con:operation><con:request name="SimilarityLookup" id="5239c891-fd2a-401e-b566-0368d87ac653"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.amazon.ca/onca/soap?Service=AWSECommerceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:SimilarityLookup>\r
+         <!--Optional:-->\r
+         <ns:MarketplaceDomain>?</ns:MarketplaceDomain>\r
+         <!--Optional:-->\r
+         <ns:AWSAccessKeyId>${#TestSuite#AWSAccessKeyId}</ns:AWSAccessKeyId>\r
+         <!--Optional:-->\r
+         <ns:AssociateTag>?</ns:AssociateTag>\r
+         <!--Optional:-->\r
+         <ns:Validate>?</ns:Validate>\r
+         <!--Optional:-->\r
+         <ns:XMLEscaping>?</ns:XMLEscaping>\r
+         <!--Optional:-->\r
+         <ns:Shared>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SimilarityType>?</ns:SimilarityType>\r
+         </ns:Shared>\r
+         <!--Zero or more repetitions:-->\r
+         <ns:Request>\r
+            <!--Optional:-->\r
+            <ns:Condition>?</ns:Condition>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ItemId>?</ns:ItemId>\r
+            <!--Optional:-->\r
+            <ns:MerchantId>?</ns:MerchantId>\r
+            <!--Zero or more repetitions:-->\r
+            <ns:ResponseGroup>?</ns:ResponseGroup>\r
+            <!--Optional:-->\r
+            <ns:SimilarityType>?</ns:SimilarityType>\r
+         </ns:Request>\r
+      </ns:SimilarityLookup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="7555aeee-94f0-46c0-87c5-0568b054a8ea" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="7938e502-82c9-4417-8384-4f9fa4f1d86f" name="Response SLA"><con:configuration><SLA>1500</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://soap.amazon.com/SimilarityLookup" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>AWSAccessKeyId</con:name><con:value>AKIAIVJAGZVKC5WPKTTA</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
